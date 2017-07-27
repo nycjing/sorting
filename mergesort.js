@@ -14,19 +14,29 @@ function split(wholeArray) {
 }
 
 function merge(array1, array2) {
-
     var result = [];
 
-    if (array1.length > array2.length) {
-        var len = array1.length
-    }
-    else {
-        var len = array2.length
-    }
-
-    for (i=0; i<len; i++) {
-         if (sample1[i]>sample2[i])
-
+    while (array1.length) {
+         if (array1[0] > array2[0]) {
+             result.push(array2[0]);
+             array2 = array2.slice(1);
+         } else {
+             result.push(array1[0]);
+             array1 = array1.slice(1);
+         }
     }
 
+    return result.concat(array2);
+}
+
+function mergeSort(array) {
+    if (array.length === 1) {
+        return array;
+    } else if (array.length === 2) {
+        var smallArrays = split(array);
+        return merge(smallArrays[0], smallArrays[1]);
+    } else {
+        var smallArrays = split(array);
+        return merge(mergeSort(smallArrays[0]), mergeSort(smallArrays[1]));
+    }
 }

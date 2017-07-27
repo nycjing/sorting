@@ -24,12 +24,43 @@ describe('Split Array function', function() {
 
 });
 
-describe('Merge Sort', function(){
+describe('Merge Function', function(){
     it('is able to merge two sorted arrays into one sorted array', function(){
         // test the merging algorithm
         var sample1 = [2,5,8]
         var sample2 = [1,4, 12,13];
         expect( merge(sample1,sample2) ).toEqual( [1,2,4,5,8,12,13] );
+    });
 
+    it('is able to merge two sorted arrays into one sorted array', function(){
+        var sample1 = [1, 2, 4]
+        var sample2 = [5, 8, 12,13];
+        expect( merge(sample1,sample2) ).toEqual( [1,2,4,5,8,12,13] );
+    });
+
+    it('is able to merge two sorted arrays into one sorted array', function(){
+        var sample2 = [1, 2, 4]
+        var sample1 = [5, 8, 12,13];
+        expect( merge(sample1,sample2) ).toEqual( [1,2,4,5,8,12,13] );
+    });
+});
+
+describe('Merge Sort', function(){
+    it('is able to merge two sorted arrays into one sorted array', function(){
+        // test the merging algorithm
+        var sample1 = [5, 2]
+        expect( mergeSort(sample1) ).toEqual( [2, 5] );
+    });
+
+        it('is able to merge two sorted arrays into one sorted array', function(){
+        // test the merging algorithm
+        var sample1 = [5, 2, 8]
+        expect( mergeSort(sample1) ).toEqual( [2, 5, 8] );
+    });
+
+        it('is able to merge two sorted arrays into one sorted array', function(){
+        // test the merging algorithm
+        var sample1 = [5, 2, 8, 1]
+        expect( mergeSort(sample1) ).toEqual( [1, 2, 5, 8] );
     });
 });
