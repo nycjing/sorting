@@ -13,21 +13,25 @@ function split(wholeArray) {
         return [];
 }
 
+
 function merge(array1, array2) {
     var result = [];
-
-    while (array1.length) {
-         if (array1[0] > array2[0]) {
-             result.push(array2[0]);
-             array2 = array2.slice(1);
-         } else {
-             result.push(array1[0]);
-             array1 = array1.slice(1);
-         }
-    }
-
-    return result.concat(array2);
+    var i = 0;
+    var j = 0
+    while (i < array1.length && j < array2.length)
+        if (array1[i] > array2[j]) {
+            result.push(array2[j]);
+            j++;
+        } else {
+            result.push(array1[i]);
+            i++
+        }
+    if (i < array1.length)
+        return result.concat(array1.slice(i));
+    else
+        return result.concat(array2.slice(j));
 }
+
 
 function mergeSort(array) {
     if (array.length === 1) {
